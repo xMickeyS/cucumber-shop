@@ -1,3 +1,4 @@
+// 6410402104 Pichaya Sena
 package ku.shop;
 
 import io.cucumber.java.en.Given;
@@ -32,5 +33,12 @@ public class BuyStepdefs {
     public void total_should_be(double total) {
         assertEquals(total, order.getTotal());
     }
+
+    // เพิ่ม feature และ step definition เพื่อทดสอบการตัดสต๊อคสินค้า กล่าวคือ ถ้ามีสินค้า 10 ชิ้น และลูกค้าซื้อไป 2 ชิ้น สินค้าต้องเหลือในสต๊อค 8 ชิ้น
+    @Then("total should be remains {int} exists...")
+    public void total_should_be(String product, int remain){
+        assertEquals(remain, catalog.getProduct(product).getStock());
+    }
+
 }
 
